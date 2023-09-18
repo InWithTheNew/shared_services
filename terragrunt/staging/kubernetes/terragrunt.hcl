@@ -8,7 +8,8 @@ locals {
 }
 
 terraform {
-  source = "../../../../terraform_modules/kubernetes"
+  # source = "../../../../terraform_modules/kubernetes"
+    source = "git::https://github.com/InWithTheNew/terraform_modules.git//kubernetes?ref=v0.0.1"
 }
 
 dependency "dns_zone" {

@@ -8,7 +8,8 @@ locals {
 }
 
 terraform {
-  source = "../../../../terraform_modules/dns_zone"
+  # source = "../../../../terraform_modules/dns_zone"
+  source = "git::https://github.com/InWithTheNew/terraform_modules.git//dns_zone?ref=v0.0.1"
 }
 
 inputs = {

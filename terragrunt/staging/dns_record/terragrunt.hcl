@@ -12,7 +12,7 @@ dependency "dns_zone" {
 }
 
 terraform {
-  source = "../../../../terraform_modules/dns_record"
+  source = "git::https://github.com/InWithTheNew/terraform_modules.git//dns_record?ref=v0.0.1"
 }
 
 inputs = {
