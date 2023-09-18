@@ -14,7 +14,7 @@ terraform {
 
     workspaces {
         name = "shared-services-${replace((get_path_from_repo_root()), "/", "-")}"
-        # name = "shared-services-${local.environment_name}-${basename(dirname(get_original_terragrunt_dir()))}"
+        # name = "shared-services-${local.environment_name}"
     }
   }
 }

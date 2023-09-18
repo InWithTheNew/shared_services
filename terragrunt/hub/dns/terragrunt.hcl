@@ -17,7 +17,7 @@ inputs = {
     location = "uksouth"
     tags = {
         repository = "${local.repo_vars.locals.repository_url}"
-        environment = "hub"
+        environment = "${local.env_vars.locals.environment_name}"
         path = "${get_path_from_repo_root()}"
         production = "${local.env_vars.locals.is_production}"
     }
