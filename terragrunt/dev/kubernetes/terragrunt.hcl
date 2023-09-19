@@ -9,14 +9,20 @@ locals {
 
 terraform {
   # source = "../../../../terraform_modules/kubernetes"
-  source = "git::https://github.com/InWithTheNew/terraform_modules.git//kubernetes?ref=v0.0.1"
+    source = "git::https://github.com/InWithTheNew/terraform_modules.git//kubernetes?ref=v0.0.2"
 }
 
 dependency "dns_zone" {
   config_path = "../dns_zone"
+
+  mock_outputs = {
+    primary_dns_resource_group = "dummydata"
+    primary_dns_zone_name = "dummy_data"
+  }
 }
 
 inputs = {
+    create = false
     name ="${local.env_vars.locals.environment_name}-cluster"
     dns_rg_name = dependency.dns_zone.outputs.primary_dns_resource_group
     kubernetes_rg_name = "${local.env_vars.locals.environment_name}-kubernetes-rsg"
@@ -30,4 +36,5 @@ inputs = {
         path = "${get_path_from_repo_root()}"
         production = "${local.env_vars.locals.is_production}"
     }
+    
 }
